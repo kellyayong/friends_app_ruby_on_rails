@@ -31,6 +31,11 @@
     <%= form.text_field :twitter, class:"form-control", placeholder:"Twitter" %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label "Profile Photo", class:"form-label" %>
+    <%= form.file_field :avatar, class:"form-control form-control-sm", type:"file" %>
+  </div>
+
    <div class="field mb-3">
     <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value:current_user.id, type: :hidden %>
   </div>

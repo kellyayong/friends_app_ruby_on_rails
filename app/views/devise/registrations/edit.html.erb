@@ -20,16 +20,25 @@
         </div>
         <br />
         <div class="field mb-3">
-          <% if @minimum_password_length %>
-            <em><%= @minimum_password_length %> characters minimum</em>
-          <% end %>
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"New Password" %>
-          
+          <small id="passwordHelpBlock" class="form-text text-muted">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+          </small>
         </div>
 
         <div class="field mb-3">
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"New Password Confirmation"  %>
         </div>
+
+        <!--
+        <div class="mb-3">
+            <%= f.label "Profile Photo", class:"form-label", for:"formFileSm" %>
+            <%= f.file_field :avatar, class:"form-control form-control-sm", type:"file" %>
+        </div>
+        <br/>
+        -->
 
         <div class="actions">
           <%= f.submit "Update", class:"btn btn-secondary" %>

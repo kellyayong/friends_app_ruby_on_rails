@@ -1,13 +1,15 @@
 <% if user_signed_in? %>
   <h1>Friend List</h1>
 
-  <table class="table table-striped table-hover table-bordered">
+  <table class="table table-striped table-hover table-bordered align-middle table-responsive text-center">
     <thead class="table-dark">
       <tr>
+        <th> </th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Twitter</th>
+        
       </tr>
     </thead>
 
@@ -16,11 +18,17 @@
         <% if friend.user == current_user %>
         <tr>
           <td>
+            <% if friend.avatar.attached? %>
+              <%= image_tag friend.avatar.variant(resize_to_limit: [150, 150]) %>
+            <% end %>
+          </td>
+          <td>
             <%= link_to friend.first_name + ' ' + friend.last_name, friend %>
           </td>
           <td><%= friend.email %></td>
           <td><%= friend.phone %></td>
           <td><%= friend.twitter %></td>
+          
         </tr>
         <% end %>
       <% end %>
